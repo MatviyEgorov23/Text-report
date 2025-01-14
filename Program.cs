@@ -11,23 +11,19 @@ namespace ConsoleApp_10._2
         static void Main(string[] args)
         {
             Console.WriteLine("Вітаємо у програмі створення текстового звіту!");
-
-            // Створюємо StringBuilder для зберігання звіту
+            
             StringBuilder report = new StringBuilder();
 
-            // Додаємо заголовок
             report.AppendLine("Текстовий звіт");
             report.AppendLine($"Дата створення: {DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss")}");
             report.AppendLine(new string('-', 30));
             report.AppendLine("Список подій:");
 
-            // Цикл для введення подій
             while (true)
             {
                 Console.WriteLine("Введіть подію (або введіть 'завершити', щоб закінчити):");
                 string input = Console.ReadLine();
 
-                // Перевірка на вихід
                 if (input.Equals("завершити", StringComparison.OrdinalIgnoreCase))
                 {
                     break;
@@ -35,7 +31,6 @@ namespace ConsoleApp_10._2
 
                 if (!string.IsNullOrWhiteSpace(input))
                 {
-                    // Додаємо подію до звіту
                     report.AppendLine($"- {input}");
                 }
                 else
@@ -49,7 +44,6 @@ namespace ConsoleApp_10._2
             Console.WriteLine("\nВаш звіт:\n");
             Console.WriteLine(report.ToString());
 
-            // Опціонально: збереження звіту у файл
             Console.WriteLine("Чи бажаєте зберегти звіт у файл? (так/ні):");
             string saveOption = Console.ReadLine();
             if (saveOption.Equals("так", StringComparison.OrdinalIgnoreCase))
